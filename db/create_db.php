@@ -1,5 +1,5 @@
 <?php
-  require('controller.php');
+  require_once('controller.php');
 
   function createTables(){
     return '
@@ -24,7 +24,7 @@
       User INT NOT NULL REFERENCES USERS(UserID),
       Token VARCHAR(64) NOT NULL,
       Date datetime NOT NULL);
-    INSERT INTO CONVERSATIONS (title) VALUES ("General");
+    --INSERT INTO CONVERSATIONS (title) VALUES ("General");
     ';
   }
   function dropTables($name) {
@@ -32,11 +32,11 @@
   }
   if(isset($_GET["action"])) {
     if($_GET["action"] == "create") {
-      createTables();
+      sql_query(createTables());
       echo "CREATED";
     } else if($_GET["action"] == "drop"){
       if(isset($_GET["table"])) {
-        dropTables($_GET["table"]);
+        sql_query(dropTables($_GET["table"]));
         echo 'DROP THIS TABLE: '.$_GET["table"];
       }
     }
