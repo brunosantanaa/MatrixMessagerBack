@@ -1,10 +1,13 @@
-<?php
-  // Handling data in JSON format on the server-side using PHP
-  //
-  header("Content-Type: application/json");
-  // build a PHP variable from JSON sent using POST method
-  $v = json_decode(stripslashes(file_get_contents("php://input")));
-  // encode the PHP variable to JSON and send it back on client-side
-  
-  echo json_encode($v);
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+  <h1>MATRIX MESSAGER - API</h1>
+</body>
+</html>

@@ -24,6 +24,7 @@
       User INT NOT NULL REFERENCES USERS(UserID),
       Token VARCHAR(64) NOT NULL,
       Date datetime NOT NULL);
+    INSERT INTO CONVERSATIONS (title) VALUES ("General");
     ';
   }
   function dropTables($name) {
