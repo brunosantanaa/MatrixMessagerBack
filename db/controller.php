@@ -9,6 +9,7 @@ function connect() {
     return $connection;
   }catch (PDOException $e) {
     return array("ERROR" => $e->getMessage());
+    exit;
   }
 }
 
@@ -21,6 +22,7 @@ function sql_query($query) {
     return json_encode($sth->fetchAll(PDO::FETCH_ASSOC));
   }catch (PDOException $e) {
     return array("ERROR" => $e->getMessage());
+    exit;
   }
 }
 
@@ -52,6 +54,33 @@ function select_binds($table, $binds, $colums='*') {
     return json_encode($sth->fetchAll(PDO::FETCH_ASSOC));
   } catch(PDOException $e) {
     return array("ERROR" => $e->getMessage());
+    exit;
+  }
+}
+function insert_binds($table, $binds) {
+  $query = 'INSERT INTO '.$table.' (';
+  foreach($binds as $key => &$value) {
+    $query = $query.$key.', ';
+  }
+  $query = substr($query, 0, -2).') VALUES (';
+  foreach($binds as $key => &$value) {
+    $query = $query.':'.$key.', ';  
+  }
+  $query = substr($query, 0, -2).');';
+ //echo $query;
+ 
+  try {
+    $connection = connect();
+    $sth = $connection->prepare($query);
+    foreach($binds as $key => &$value) {
+      $sth->bindParam($key, $value);
+    }
+    $sth->execute();
+    
+    return json_encode($sth->fetchAll(PDO::FETCH_ASSOC));
+  } catch(PDOException $e) {
+    return array("ERROR" => $e->getMessage());
+    exit;
   }
 }
 ?>

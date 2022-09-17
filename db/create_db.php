@@ -7,7 +7,7 @@
       UserID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       name VARCHAR(45),
       email VARCHAR(60),
-      password VARCHAR(50) );
+      password VARCHAR(64) );
     CREATE TABLE IF NOT EXISTS CONVERSATIONS(
       ConversationID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       title VARCHAR(50));

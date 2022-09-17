@@ -7,7 +7,7 @@ require('../db/controller.php');
   $v = json_decode(stripslashes(file_get_contents("php://input")));
   // encode the PHP variable to JSON and send it back on client-side
   if(isset($v->email, $v->password)) {
-
+    $v->password = hash('sha256', $v->password);
     $result = json_decode(select_binds('USERS', (array)$v, 'UserID'));
     
     if(count($result) > 0){
