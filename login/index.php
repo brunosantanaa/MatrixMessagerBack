@@ -1,5 +1,5 @@
 <?php
-require('../db/controller.php');
+require_once('../db/controller.php');
   // Handling data in JSON format on the server-side using PHP
   //
   header("Content-Type: application/json");
@@ -16,7 +16,6 @@ require('../db/controller.php');
       $token = hash('sha256', $result[0]->UserID.$t);
       $userID = $result[0]->UserID;
       $rep = array(
-        "user" => $userID,
         "token" => $token,
         "date" => $date
       );
