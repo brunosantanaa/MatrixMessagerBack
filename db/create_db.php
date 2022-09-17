@@ -30,5 +30,15 @@
   function dropTables($name) {
     return 'DROP TABLE '.$name;
   }
-  var_dump(sql_query(createTables()));
+  if(isset($_GET["action"])) {
+    if($_GET["action"] == "create") {
+      createTables();
+      echo "CREATED";
+    } else if($_GET["action"] == "drop"){
+      if(isset($_GET["table"])) {
+        dropTables($_GET["table"]);
+        echo 'DROP THIS TABLE: '.$_GET["table"];
+      }
+    }
+  }
 ?>
