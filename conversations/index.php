@@ -12,7 +12,8 @@ require_once('../valide.php');
       $resp = [];
       foreach ($conversations as $key => &$value) {
         $value = (array) $value;
-        $msgs = json_decode(sql_query('SELECT MessageID, Content, Date, User FROM MESSAGES WHERE Conversation='.$value["ConversationID"].' ORDER BY Date'));
+        $msgs = json_decode(
+          sql_query('SELECT MessageID, Content, Date, User, name FROM MESSAGES INNER JOIN USERS ON User=UserID WHERE Conversation='.$value["ConversationID"].' ORDER BY Date;'));
         $value += array("messages" => $msgs);
         $resp += array($key => $value);
       }
