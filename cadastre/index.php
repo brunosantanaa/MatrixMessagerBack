@@ -1,5 +1,5 @@
 <?php
-require_once('../db/controller.php');
+  require_once('../db/controller.php');
 
   header("Content-Type: application/json");
   // build a PHP variable from JSON sent using POST method
@@ -12,13 +12,17 @@ require_once('../db/controller.php');
     $result = json_decode(select_binds('USERS', ["email"=>$v["email"]]));
     if(count($result) < 1) {
       insert_binds('USERS', $v);
+      $result = json_decode(select_binds('USERS', ["email"=>$v["email"]]));
+      $result = (array)$result[0];
+      $conversation = array("User" => $result["UserID"], "Conversation"=> 1);
+      insert_binds('UsersConversations', $conversation);
       $resp = array("register" => "success");
     } else {
-      $resp = array("error"=>"user_exist");
+      $resp = array("error"=>"User Exists");
     }
     
   } else {
-    $resp = array("error"=>"no_data");
+    $resp = array("error"=>"No Data");
   }
   
   echo json_encode($resp);
