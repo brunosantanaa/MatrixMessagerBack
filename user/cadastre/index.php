@@ -1,5 +1,5 @@
 <?php
-  require_once('../db/controller.php');
+  require_once('../../db/controller.php');
 
   header("Content-Type: application/json");
   // build a PHP variable from JSON sent using POST method

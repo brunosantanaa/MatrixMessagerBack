@@ -1,5 +1,5 @@
 <?php
-require_once('../db/controller.php');
+require_once('../../db/controller.php');
   // Handling data in JSON format on the server-side using PHP
   //
   header("Content-Type: application/json");
