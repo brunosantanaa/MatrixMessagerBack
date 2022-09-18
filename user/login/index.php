@@ -13,7 +13,7 @@ require_once('../../db/controller.php');
     if(count($result) > 0){
       $t = time();
       $date = date('Y-m-d H:i:s', $t);
-      $token = hash('sha256', $result[0]->UserID.$t);
+      $token = hash('sha256', $v->password.$result[0]->UserID.$t);
       $userID = $result[0]->UserID;
       $rep = array(
         "token" => $token,
