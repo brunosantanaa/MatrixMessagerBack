@@ -8,7 +8,7 @@ Cette page est pour le Côté Serveur.
 
 ## Côté Client
 
-[Github - MatrixMessagerBack](https://github.com/brunosantanaa/MatrixMessager)
+[Github - MatrixMessager](https://github.com/brunosantanaa/MatrixMessager)
 
 ## Exigences du projet
 
