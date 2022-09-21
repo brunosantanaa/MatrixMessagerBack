@@ -14,4 +14,19 @@
       return json_encode(["access" => false]);
     }
   }
+  
+  function isSetAndNOTEmpty($keys, $method=false) {
+    $resp = true;
+    $length = count($keys);
+    $i = 0;
+    while($resp && ($i < $length)){
+      if (!$method) {
+        $resp = isset($keys[$i]) && !empty($keys[$i]);
+      }else {
+        $resp = isset($GLOBALS["_".$method][$keys[$i]]) && !empty($GLOBALS["_".$method][$keys[$i]]);
+      }
+      $i++;
+    }
+    return $resp;
+  }
 ?>

@@ -8,7 +8,7 @@ require_once('../../valide.php');
   if (isset($v->token)) {
     $result = json_decode(is_valid($v));
     if($result->access) {
-      if(isset($v->message) && strlen($v->message) <= 150) {
+      if(isSetAndNOTEmpty([$v->message]) && strlen($v->message) <= 150) {
         $t = time();
         $date = date('Y-m-d H:i:s', $t);
         $sub_query = 'SELECT User FROM ACCESS WHERE Token="'.$v->token.'" ORDER BY User LIMIT 1';

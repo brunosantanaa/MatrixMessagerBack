@@ -1,12 +1,13 @@
 <?php
 require_once('../../db/controller.php');
+  require_once('../../valide.php');
   // Handling data in JSON format on the server-side using PHP
   //
   header("Content-Type: application/json");
   // build a PHP variable from JSON sent using POST method
   $v = json_decode(stripslashes(file_get_contents("php://input")));
   // encode the PHP variable to JSON and send it back on client-side
-  if(isset($v->email, $v->password)) {
+  if(isSetAndNOTEmpty([$v->email, $v->password])) {
     $v->password = hash('sha256', $v->password);
     $result = json_decode(select_binds('USERS', (array)$v, 'UserID'));
     
@@ -26,10 +27,10 @@ require_once('../../db/controller.php');
         sql_query('INSERT INTO ACCESS VALUES ('.$userID.',"'.$token.'","'.$date.'")');
       }
     } else {
-      $rep = array("error" => "no_user");
+      $rep = array("error" => "Vérifiez votre nom d'utilisateur ou votre mot de passe.");
     }
   }else{
-    $rep = array("error" => "bad_params");
+    $rep = array("error" => "No Params");
   };
   echo json_encode($rep);
 ?>
