@@ -10,6 +10,10 @@ Cette page est pour le Côté Serveur.
 
 [Github - MatrixMessager](https://github.com/brunosantanaa/MatrixMessager)
 
+## Base de donée
+
+![EER Diagram](./static/EERDiagram.png)
+
 ## Exigences du projet
 
 ### Projet de session
