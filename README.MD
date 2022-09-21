@@ -10,7 +10,7 @@ Cette page est pour le Côté Serveur.
 
 [Github - MatrixMessager](https://github.com/brunosantanaa/MatrixMessager)
 
-## Base de donée
+## Base de données
 
 ![EER Diagram](./static/EERDiagram.png)
 
