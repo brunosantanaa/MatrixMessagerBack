@@ -10,9 +10,28 @@ Cette page est pour le Côté Serveur.
 
 [Github - MatrixMessager](https://github.com/brunosantanaa/MatrixMessager)
 
+## Installation
+
+Ajouter cette projet dans un serveur web, dans le cas où vous utilisez l'apache avec xampp, vous pouvez faire le clone du projet dans le dossier htdocs.
+
 ## Base de données
 
 ![EER Diagram](./static/EERDiagram.png)
+
+### Installation
+
+Pour créer la base de données vous pouvez ouvrir la page ./db/create_db.php dans le navagateur avec la variable action comme create, comme suit:
+
+```
+http://localhost/MatrixMessagerBack/db/create_db.php?action=create
+```
+
+Pour supprimer n'importe quelle table:
+
+```
+http://localhost/MatrixMessagerBack/db/create_db.php?action=drop&table=USERS
+```
+
 
 ## Exigences du projet
 
