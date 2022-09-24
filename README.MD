@@ -12,7 +12,7 @@ Cette page est pour le Côté Serveur.
 
 ## Installation
 
-Ajouter cette projet dans un serveur web, dans le cas où vous utilisez l'apache avec xampp, vous pouvez faire le clone du projet dans le dossier htdocs.
+Utilise pour cette projet un serveur web, dans le cas où vous utilisez l'apache avec xampp, vous pouvez faire le clone du projet dans le dossier htdocs.
 
 ## Base de données
 
